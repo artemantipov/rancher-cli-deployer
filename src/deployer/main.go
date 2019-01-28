@@ -35,14 +35,9 @@ func main() {
 	}
 	composeURI := getCompose(stackName)
 	updatedURI := composeURI
-	// updatedURI := fmt.Sprintf("%v/updated", composeURI)
 	rancherURL := os.Getenv("RANCHER_URL")
-	if strings.Contains(rancherURL, "prod.env") {
-		fmt.Println("Checking user access...")
-		aclCheck(gitUser, stackName)
-	} else {
-		fmt.Println("Check not required")
-	}
+	fmt.Println("Checking user access...")
+	aclCheck(gitUser, stackName)
 	var action string
 	switch services {
 	case "all":
